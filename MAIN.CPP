@@ -1,3 +1,6 @@
+//this code is incomplete
+//this program is about collecting, modifying and showing some data.
+
 #include <iostream.h>
 #include<conio.h>
 #include<fstream.h>
@@ -8,12 +11,18 @@ class iodet
    public:
    fstream sout;
 
-   typedef struct student
+   typedef struct student    //structure to collect students' data
    {
     int roll, fee;
     char name[30];
    }student;
 
+  typedef struct faculty    //structure to collect faculties' data
+   {
+    int salary;
+    char post[30], name[30];
+   }faculty;
+	
    iodet()
    {
     cout<<"Will be done later ...\n";
@@ -24,7 +33,7 @@ class siodet:public iodet
 {
 	public:
 		student stud;
-	void sidet()
+	void sidet()                 //function to get the details from user and write them to file
 	{
 		sout.open("sdb.dat", ios::app|ios::binary);
 		cout<<"Enter the Name of the student.. - ";
@@ -38,7 +47,7 @@ class siodet:public iodet
 		sout<<stud.fee<<"\n";
 		sout.close();
 	}
-	void sodet()
+	void sodet()  //to display the data of students
 	{
 		student s;
 		char ch='/';
@@ -60,7 +69,7 @@ class siodet:public iodet
 		sin.close();
 	}
 
-	void sdelete()
+	void sdelete()  //function to delete the data from file
 	{
 		char *name, sname;
 		char ch='!';
@@ -79,7 +88,7 @@ class siodet:public iodet
 };
 
 
-int main()
+int main()   //main program
 {
 	cout<<"Program started."<<endl;
 	siodet s1;
